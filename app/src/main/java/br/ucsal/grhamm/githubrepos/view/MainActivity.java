@@ -1,8 +1,10 @@
-package br.ucsal.grhamm.githubrepos;
+package br.ucsal.grhamm.githubrepos.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import br.ucsal.grhamm.githubrepos.R;
 
 public class MainActivity extends AppCompatActivity {
 
