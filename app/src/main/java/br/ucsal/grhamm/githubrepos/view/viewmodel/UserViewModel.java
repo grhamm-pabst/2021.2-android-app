@@ -22,6 +22,9 @@ public class UserViewModel extends ViewModel {
         if(users == null) {
             users = new MutableLiveData<List<User>>();
         }
+
+        this.users.postValue(repository.getUserDAO().findAll());
+
         return users;
     }
 }
