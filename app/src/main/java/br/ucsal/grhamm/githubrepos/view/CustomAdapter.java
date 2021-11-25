@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Collections;
 import java.util.List;
 
 import br.ucsal.grhamm.githubrepos.R;
@@ -18,8 +19,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
     private List<User> data;
 
-    public CustomAdapter(List<User> dados){
-        this.data = dados;
+    public CustomAdapter() { this.data = Collections.emptyList(); }
+
+    public CustomAdapter(List<User> data){
+        this.data = data;
     }
 
     @NonNull

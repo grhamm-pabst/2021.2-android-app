@@ -9,10 +9,6 @@ public class Repository {
         return userDAO;
     }
 
-    public void setUserDAO(UserDAO userDAO) {
-        this.userDAO = userDAO;
-    }
-
     public Repository(UserDAO userDAO){
         this.userDAO = userDAO;
     }
