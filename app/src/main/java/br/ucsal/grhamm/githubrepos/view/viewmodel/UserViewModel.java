@@ -23,7 +23,7 @@ public class UserViewModel extends ViewModel {
             users = new MutableLiveData<List<User>>();
         }
 
-        this.users.postValue(repository.getUserDAO().findAll());
+        //this.users.postValue(repository.getUserDAO().findAll());
 
         return users;
     }
