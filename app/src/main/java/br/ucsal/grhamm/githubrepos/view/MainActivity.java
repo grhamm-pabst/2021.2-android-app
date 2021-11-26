@@ -5,14 +5,13 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ListView;
-
-import java.util.List;
+import android.view.View;
+import android.widget.EditText;
 
 import br.ucsal.grhamm.githubrepos.R;
 import br.ucsal.grhamm.githubrepos.Repository;
-import br.ucsal.grhamm.githubrepos.model.User;
 import br.ucsal.grhamm.githubrepos.persistence.Database;
 import br.ucsal.grhamm.githubrepos.view.viewmodel.UserViewModel;
 import br.ucsal.grhamm.githubrepos.view.viewmodel.UserViewModelFabric;
@@ -21,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
     private UserViewModel userViewModel;
     private RecyclerView listView;
-    private CustomAdapter adapter;
+    private UserCustomAdapter adapter;
+    private EditText searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         userViewModel = provider.get(UserViewModel.class);
 
-        adapter = new CustomAdapter();
+        adapter = new UserCustomAdapter();
 
         listView = findViewById(R.id.search_history_list);
 
@@ -45,5 +45,17 @@ public class MainActivity extends AppCompatActivity {
         listView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
 
         userViewModel.getUsers().observe(this, i -> adapter.update(i));
+
+        searchView = findViewById(R.id.search_username);
+    }
+
+    public void btnSearchAction(View view) {
+        String content = this.searchView.getText().toString();
+
+        Intent i = new Intent(MainActivity.this, SearchActivity.class);
+
+        i.putExtra("username", content);
+
+        startActivity(i);
     }
 }

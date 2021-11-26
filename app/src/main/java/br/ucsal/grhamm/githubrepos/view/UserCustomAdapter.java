@@ -15,13 +15,13 @@ import br.ucsal.grhamm.githubrepos.R;
 
 import br.ucsal.grhamm.githubrepos.model.User;
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
+public class UserCustomAdapter extends RecyclerView.Adapter<UserCustomAdapter.CustomViewHolder> {
 
     private List<User> data;
 
-    public CustomAdapter() { this.data = Collections.emptyList(); }
+    public UserCustomAdapter() { this.data = Collections.emptyList(); }
 
-    public CustomAdapter(List<User> data){
+    public UserCustomAdapter(List<User> data){
         this.data = data;
     }
 
